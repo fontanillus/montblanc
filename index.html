@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menú restaurante</title>
+  <link rel="shortcut icon" href="./img/menu.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<style>
+ body {
+    font-family: 'Nunito', sans-serif;
+    color: darkblue;
+    width: 90%;
+    height: auto;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    position: relative;
+    /* Necesario para que ::before se posicione correctamente */
+    z-index: 1;
+    /* Asegura que el contenido del body esté sobre ::before */
+  }
+
+  body::before {
+    content: "";
+    background-image: url('./img/montblanc.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    /* Opacidad de la imagen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  h1 {
+    color: darkblue;
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  fieldset {
+    border-style: double;
+    border: 5px solid darkblue;
+    border-style: double;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  fieldset {
+  margin-left: 30%
+}
+
+  input {
+    display: inline-block;
+    margin: 5px 0;
+  }
+
+  button {
+    border: 5px solid darkblue;
+    background-color: beige;
+    display: block;
+    margin: 0 auto;
+  }
+
+  header>p {
+    text-align: center;
+  
+  }
+
+  header h1 {
+  position: fixed;
+  top: 0;
+  background-color: white; /* Asegura que se vea bien sobre cualquier fondo */
+  padding: 10px;
+  margin-left: 10%;
+  z-index: 10; /* Lo mantiene por encima de otros elementos */
+  text-align: center;
+  border-bottom: 2px solid darkblue; /* Opcional para separarlo visualmente */
+}
+
+  select {
+    color: darkblue;
+    opacity: 0.4;
+    margin-left: 150%;
+  }
+
+  #fotoPlato {
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;
+  }
+
+  .contenedor-plato-menu {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    gap: 20%;
+    /* Espacio entre el select y la imagen */
+    margin-top: 30px;
+  }
+
+  .contenedor-plato-menu select {
+    padding: 10px;
+    font-size: 1rem;
+    min-width: 200px;
+  }
+
+  #fotoPlato {
+    max-width: 300px;
+    height: auto;
+    border: 2px solid #333;
+    border-radius: 8px;
+  }
+
+  div select {
+    padding: 5px;
+  }
+
+  #fotoPlato {
+    display: none;
+    /*para que no se muestre ninguna foto hasta que se seleccione*/
+    max-width: 300px;
+    height: auto;
+  }
+
+  #menu {
+    background: transparent;
+    font-size: 1rem;
+    padding: 5px;
+    opacity: 0.8;
+    font-weight: bold;
+  }
+
+  .imagenes-header {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    /* Aumenta o reduce este valor para más o menos espacio */
+    margin-top: 10px;
+    margin-left: 10%;
+  }
+
+  .imagenes-header img {
+    width: 50%;
+    height: auto;
+  }
+
+  .info-contacto {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* espacio entre cada dato */
+  font-size: 0.9rem;
+  color: darkblue;
+  flex-wrap: wrap; /* para que en pantallas pequeñas se ajuste */
+  font-size: medium;
+}
+
+/* Aplica cursor pointer a todos los elementos cuando tengan hover */
+*:hover {
+  cursor: pointer;
+}
+
+.info-contacto a {
+  color: darkblue;
+  text-decoration: none;
+  font-size: medium;
+}
+
+.redes-sociales {
+  text-align: center;
+  margin-top: 20px;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: darkblue;
+}
+
+.redes-sociales a {
+  color: darkblue;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+</style>
+<body>
+  <header>
+    <h1>Restaurante Montblanc</h1>
+    <div class="imagenes-header">
+      <img src="./img/inicio.jpg" alt="foto" id="imagen">
+      <img src="./img/resturante2.jpg" alt="foto">
+    </div>
+    <br>
+  </header>
+  <div class="contenedor-plato-menu">
+    <aside>
+      <select onchange="mostrarPlatos()" id="menu" size="4">
+        <option value="" disabled selected>Seleccione un plato del menú</option>
+        <option value="./img/entrecot.jpg">Entrecot de Ternera</option>
+        <option value="./img/macarrones.jpg">Macarrones al pesto</option>
+        <option value="./img/rissoto.jpg">Rissoto cremoso a la parmesana</option>
+        <option value="./img/albondigas.jpg">Albóndigas de coliflor</option>
+      </select>
+    </aside>
+    <img id="fotoPlato" src="" alt="Foto del plato seleccionado">
+  </div>
+  <main>
+    <h2>Menú del día</h2>
+
+    <form id="menuForm">
+      <fieldset>
+        <legend>Por favor seleccione un plato de nuestro menú</legend>
+        <p>
+          <label for="entrecot"><input type="radio" name="plato" value="Entrecot de ternera" id="entrecot" /> Entrecot
+            de
+            ternera</label><br />
+          <label for="macarrones"><input type="radio" name="plato" value="Macarrones al pesto" id="macarrones" />
+            Macarrones al
+            pesto</label><br />
+          <label for="rissoto"><input type="radio" name="plato" value="Risotto cremoso a la parmesana" id="rissoto" />
+            Risotto cremoso a
+            la parmesana</label><br />
+          <label for="albondigas"><input type="radio" name="plato" value="Albóndigas de coliflor con tomate"
+              id="albondigas" /> Albóndigas
+            de coliflor con tomate</label>
+        </p>
+      </fieldset>
+      <br>
+      <br>
+      <br>
+      <fieldset>
+        <legend>Por favor indique sus preferencias e Intolerancias</legend>
+        <p>
+          <label><input type="checkbox" id="vegano" /> Vegano</label>
+          <label><input type="checkbox" id="gluten" /> Intolerancia al gluten</label>
+          <label><input type="checkbox" id="lactosa" /> Intolerancia a la lactosa</label>
+        </p>
+      </fieldset>
+      <br>
+      <br>
+      <button type="submit">Ordenar</button>
+      <br>
+      <p id="mensaje"></p>
+    </form>
+  </main>
+  <footer>
+  <div class="info-contacto">
+    <span>📞 <a href="tel:+34639213155">+34 639 213 155</a></span>
+    <span>📧 <a href="mailto:reservas@montblancrestaurante.com">reservas@montblancrestaurante.com</a></span>
+    <span>📍 Carrer Sant Salvador, 123 – Barcelona, España</span>
+  </div>
+  <div class="redes-sociales">
+    <a href="https://www.facebook.com/tu_pagina" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://www.instagram.com/tu_usuario" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://twitter.com/tu_usuario" target="_blank" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+</footer>
+<script src="./js/menu.js"></script>
+  <script>
+    const ENTRECOT = document.querySelector('#entrecot');
+    const MACARRONES = document.querySelector('#macarrones');
+    const RISSOTO = document.querySelector('#rissoto');
+    const ALBONDIGAS = document.querySelector('#albondigas');
+    const VEGANO = document.querySelector('#vegano');
+    const GLUTEN = document.querySelector('#gluten');
+    const LACTOSA = document.querySelector('#lactosa');
+    const MENSAJE = document.querySelector('#mensaje');
+
+    function actualizarMensaje() {
+      if (ENTRECOT.checked && VEGANO.checked) {
+        MENSAJE.innerHTML = "Este plato es incompatible con sus preferencias y/o intolerancias. Por favor, escoja otro plato de nuestro menú.";
+        MENSAJE.style.color = "darkred";
+      } else if (MACARRONES.checked && GLUTEN.checked) {
+        MENSAJE.innerHTML = "Este plato es incompatible con sus preferencias y/o intolerancias. Por favor, escoja otro plato de nuestro menú.";
+        MENSAJE.style.color = "darkred";
+      } else if (RISSOTO.checked && LACTOSA.checked) {
+        MENSAJE.innerHTML = "Este plato es incompatible con sus preferencias y/o intolerancias. Por favor, escoja otro plato de nuestro menú.";
+        MENSAJE.style.color = "darkred";
+      } else if (ENTRECOT.checked || MACARRONES.checked || RISSOTO.checked || ALBONDIGAS.checked) {
+        MENSAJE.innerHTML = "Disfrute de nuestro delicioso plato.";
+        MENSAJE.style.color = "darkgreen";
+      } else {
+        MENSAJE.innerHTML = "Por favor escoja un plato";
+        MENSAJE.style.color = "yellow";
+        MENSAJE.style.textAlign = "center";
+      }
+
+    }
+
+    // Añadir listeners a todos los checkboxes
+    const inputs = [ENTRECOT, MACARRONES, RISSOTO, ALBONDIGAS, VEGANO, GLUTEN, LACTOSA];
+    inputs.forEach(input => {
+      input.addEventListener('change', actualizarMensaje);
+    });
+
+    // Llamar a la función al cargar la página también
+    actualizarMensaje();
+
+    console.log(MENSAJE.innerHTML);
+
+  </script>
+
+
+</body>
+
+</html>
