@@ -5,11 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Menú restaurante</title>
+  <link rel="stylesheet" href="./css/normalize.css">
   <link rel="shortcut icon" href="./img/menu.jpg" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!--Font Awesome es una biblioteca de iconos vectoriales que se usa en sitios web. Incluye íconos de redes sociales, botones, acciones, menús, etc.-->
 </head>
 <style>
- body {
+  body {
     font-family: 'Nunito', sans-serif;
     color: darkblue;
     width: 90%;
@@ -48,7 +50,6 @@
   }
 
   fieldset {
-    border-style: double;
     border: 5px solid darkblue;
     border-style: double;
     margin-left: 20%;
@@ -56,8 +57,8 @@
   }
 
   fieldset {
-  margin-left: 30%
-}
+    margin-left: 30%
+  }
 
   input {
     display: inline-block;
@@ -73,19 +74,22 @@
 
   header>p {
     text-align: center;
-  
+
   }
 
   header h1 {
-  position: fixed;
-  top: 0;
-  background-color: white; /* Asegura que se vea bien sobre cualquier fondo */
-  padding: 10px;
-  margin-left: 10%;
-  z-index: 10; /* Lo mantiene por encima de otros elementos */
-  text-align: center;
-  border-bottom: 2px solid darkblue; /* Opcional para separarlo visualmente */
-}
+    position: fixed;
+    top: 0;
+    background-color: white;
+    /* Asegura que se vea bien sobre cualquier fondo */
+    padding: 10px;
+    margin-left: 10%;
+    z-index: 10;
+    /* Lo mantiene por encima de otros elementos */
+    text-align: center;
+    border-bottom: 2px solid darkblue;
+    /* Opcional para separarlo visualmente */
+  }
 
   select {
     color: darkblue;
@@ -157,42 +161,417 @@
   }
 
   .info-contacto {
-  display: flex;
-  justify-content: center;
-  gap: 40px; /* espacio entre cada dato */
-  font-size: 0.9rem;
-  color: darkblue;
-  flex-wrap: wrap; /* para que en pantallas pequeñas se ajuste */
-  font-size: medium;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    /* espacio entre cada dato */
+    font-size: 0.9rem;
+    color: darkblue;
+    flex-wrap: wrap;
+    /* para que en pantallas pequeñas se ajuste */
+    font-size: medium;
+  }
+
+  /* Aplica cursor pointer a todos los elementos cuando tengan hover */
+  *:hover {
+    cursor: pointer;
+  }
+
+  .info-contacto a {
+    color: darkblue;
+    text-decoration: none;
+    font-size: medium;
+  }
+
+  .redes-sociales {
+    text-align: center;
+    margin-top: 20px;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: darkblue;
+  }
+
+  .redes-sociales a {
+    color: darkblue;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  /* Móviles (vertical y horizontal) - Pantallas menores o iguales a 600px */
+@media screen and (max-width: 600px) {
+  body {
+    width: 100%;
+    margin: 5% auto;
+    padding: 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem; /* Ajustamos el tamaño del título */
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  fieldset {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .contenedor-plato-menu {
+    flex-direction: column; /* Los elementos se apilan verticalmente */
+    align-items: center;
+    gap: 10%;
+  }
+
+  .contenedor-plato-menu select {
+    min-width: 150px;
+    font-size: 1rem;
+  }
+
+  #fotoPlato {
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    height: auto;
+  }
+
+  .imagenes-header {
+    flex-direction: column; /* Las imágenes se apilan verticalmente */
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .imagenes-header img {
+    width: 100%;
+    height: auto;
+  }
+
+  .info-contacto {
+    flex-direction: column; /* Apilamos los elementos */
+    font-size: 0.8rem;
+    gap: 10px;
+  }
+
+  .redes-sociales {
+    font-size: 1.2rem;
+    gap: 15px;
+  }
+
+  select {
+    margin-left: 0;
+    opacity: 1;
+  }
 }
 
-/* Aplica cursor pointer a todos los elementos cuando tengan hover */
-*:hover {
-  cursor: pointer;
+/* Tablets (vertical y horizontal) - Pantallas entre 601px y 1024px */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    width: 85%;
+    margin: 5% auto;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  fieldset {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .contenedor-plato-menu {
+    flex-direction: row; /* Los elementos se alinean horizontalmente */
+    justify-content: space-around;
+    gap: 15%;
+  }
+
+  .contenedor-plato-menu select {
+    min-width: 200px;
+    font-size: 1rem;
+  }
+
+  #fotoPlato {
+    max-width: 250px;
+    height: auto;
+  }
+
+  .imagenes-header {
+    gap: 20px;
+  }
+
+  .imagenes-header img {
+    width: 45%;
+    height: auto;
+  }
+
+  .info-contacto {
+    font-size: 0.9rem;
+    gap: 15px;
+  }
+
+  .redes-sociales {
+    font-size: 1.4rem;
+    gap: 20px;
+  }
 }
 
-.info-contacto a {
-  color: darkblue;
-  text-decoration: none;
-  font-size: medium;
+/* Tablets en modo horizontal (landscape) - Pantallas entre 601px y 1024px */
+@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
+  body {
+    width: 80%;
+    margin: 5% auto;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+
+  .contenedor-plato-menu {
+    flex-direction: row; /* Horizontal en landscape */
+    justify-content: center;
+    gap: 30%;
+  }
+
+  .contenedor-plato-menu select {
+    min-width: 250px;
+  }
+
+  .imagenes-header img {
+    width: 40%; /* Ajuste para imágenes más pequeñas */
+  }
+
+  .info-contacto {
+    font-size: 1rem;
+    gap: 20px;
+  }
+
+  .redes-sociales {
+    font-size: 1.6rem;
+    gap: 25px;
+  }
+}
+/* Móviles (vertical y horizontal) - Pantallas menores o iguales a 600px */
+@media screen and (max-width: 600px) {
+  body {
+    width: 100%;
+    margin: 5% auto;
+    padding: 0;
+    font-size: 1rem; /* Tamaño de fuente más pequeño */
+  }
+
+  header h1 {
+    font-size: 1.5rem; /* Tamaño del título más pequeño */
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  fieldset {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+  }
+
+  .contenedor-plato-menu {
+    flex-direction: column; /* Los elementos se apilan verticalmente */
+    align-items: center;
+    gap: 10%;
+  }
+
+  .contenedor-plato-menu select {
+    min-width: 150px;
+    font-size: 1rem;
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+  #fotoPlato {
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .imagenes-header {
+    flex-direction: column; /* Las imágenes se apilan verticalmente */
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .imagenes-header img {
+    width: 100%;
+    height: auto;
+  }
+
+  .info-contacto {
+    flex-direction: column; /* Apilamos los elementos */
+    font-size: 0.8rem;
+    gap: 10px;
+  }
+
+  .redes-sociales {
+    font-size: 1.2rem;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  select {
+    margin-left: 0;
+    opacity: 1;
+  }
 }
 
-.redes-sociales {
-  text-align: center;
-  margin-top: 20px;
-  gap: 20px;
-  display: flex;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: darkblue;
+/* Tablets (vertical y horizontal) - Pantallas entre 601px y 1024px */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    width: 90%;
+    margin: 5% auto;
+    font-size: 1.2rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  fieldset {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 15px;
+  }
+
+  .contenedor-plato-menu {
+    flex-direction: row; /* Los elementos se alinean horizontalmente */
+    justify-content: space-around;
+    gap: 10%;
+  }
+
+  .contenedor-plato-menu select {
+    min-width: 200px;
+    font-size: 1rem;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  #fotoPlato {
+    max-width: 250px;
+    height: auto;
+  }
+
+  .imagenes-header {
+    gap: 20px;
+  }
+
+  .imagenes-header img {
+    width: 45%;
+    height: auto;
+  }
+
+  .info-contacto {
+    font-size: 1rem;
+    gap: 15px;
+  }
+
+  .redes-sociales {
+    font-size: 1.4rem;
+    gap: 20px;
+  }
 }
 
-.redes-sociales a {
-  color: darkblue;
-  text-decoration: none;
-  transition: color 0.3s ease;
+/* Tablets en modo horizontal (landscape) - Pantallas entre 601px y 1024px */
+@media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
+  body {
+    width: 85%;
+    margin: 5% auto;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+    margin-top: 10px;
+  }
+
+  fieldset {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 20px;
+  }
+
+  .contenedor-plato-menu {
+    flex-direction: row; /* Horizontal en landscape */
+    justify-content: center;
+    gap: 30%;
+  }
+
+  .contenedor-plato-menu select {
+    min-width: 250px;
+    padding: 12px;
+  }
+
+  #fotoPlato {
+    max-width: 300px;
+    height: auto;
+  }
+
+  .imagenes-header {
+    gap: 20px;
+  }
+
+  .imagenes-header img {
+    width: 40%; /* Las imágenes no ocupan demasiado espacio */
+  }
+
+  .info-contacto {
+    font-size: 1.1rem;
+    gap: 20px;
+  }
+
+  .redes-sociales {
+    font-size: 1.6rem;
+    gap: 25px;
+  }
 }
+
+/* Para pantallas grandes - mayor a 1024px (solo como referencia) */
+@media screen and (min-width: 1025px) {
+  body {
+    width: 80%;
+    margin: 5% auto;
+    font-size: 1.3rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    margin-top: 20px;
+  }
+
+  .contenedor-plato-menu {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40%;
+  }
+
+  .contenedor-plato-menu select {
+    min-width: 300px;
+  }
+
+  .imagenes-header img {
+    width: 35%;
+  }
+
+  .info-contacto {
+    font-size: 1.2rem;
+    gap: 25px;
+  }
+
+  .redes-sociales {
+    font-size: 1.8rem;
+    gap: 30px;
+  }
+}
+
 </style>
+
 <body>
   <header>
     <h1>Restaurante Montblanc</h1>
@@ -254,24 +633,25 @@
     </form>
   </main>
   <footer>
-  <div class="info-contacto">
-    <span>📞 <a href="tel:+34639213155">+34 639 213 155</a></span>
-    <span>📧 <a href="mailto:reservas@montblancrestaurante.com">reservas@montblancrestaurante.com</a></span>
-    <span>📍 Carrer Sant Salvador, 123 – Barcelona, España</span>
-  </div>
-  <div class="redes-sociales">
-    <a href="https://www.facebook.com/tu_pagina" target="_blank" aria-label="Facebook">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://www.instagram.com/tu_usuario" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://twitter.com/tu_usuario" target="_blank" aria-label="Twitter">
-      <i class="fab fa-twitter"></i>
-    </a>
-  </div>
-</footer>
-<script src="./js/menu.js"></script>
+    <div class="info-contacto">
+      <span>📞 <a href="tel:+34639213155">+34 639 213 155</a></span>
+      <span>📧 <a href="mailto:reservas@montblancrestaurante.com">reservas@montblancrestaurante.com</a></span>
+      <span>📍 Carrer Sant Salvador, 123 – Barcelona, España</span>
+    </div>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com/tu_pagina" target="_blank" aria-label="Facebook" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/tu_usuario" target="_blank" aria-label="Instagram" rel="noopener">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://twitter.com/tu_usuario" target="_blank" aria-label="Twitter"
+        rel="noopener"><!--noopener mejorar la seguridad y el rendimiento-->
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+  </footer>
+  <script src="./js/menu.js"></script>
   <script>
     const ENTRECOT = document.querySelector('#entrecot');
     const MACARRONES = document.querySelector('#macarrones');
